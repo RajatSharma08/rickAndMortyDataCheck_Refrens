@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rick & Morty Characters</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>Rick & Morty Characters</h1>
+  <div id="character-grid">
+    <% characters.forEach((character) => { %>
+      <div class="card">
+        <img src="<%= character.image %>" alt="<%= character.name %>">
+        <h2><%= character.name %></h2>
+        <p>Species: <%= character.species %></p>
+        <p>Gender: <%= character.gender %></p>
+        <p>Origin: <%= character.origin.name %></p>
+        <p>Location: <%= character.location.name %></p>
+        <p>Featured in:</p>
+        <ul>
+          <% character.episode.forEach((episode) => { %>
+            <li><%= episode %></li>
+          <% }) %>
+        </ul>
+      </div>
+    <% }) %>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
